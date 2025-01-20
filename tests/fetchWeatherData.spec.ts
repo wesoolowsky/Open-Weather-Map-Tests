@@ -1,8 +1,8 @@
 import { test, expect, APIRequestContext } from '@playwright/test';
 import { FetchWeatherData } from './pages/fetchWeatherData';
 
-const webhookUrl = 'https://discord.com/api/webhooks/1330798073659523124/vdMdvir-kXKqRSRGTz0rh-19JBaoczh6Qhm_MEZugrniXeHdNDFaR66ZW4wvje6dZ45U';
-const apiKey = 'dc0132befaa9ebb61d03d5e6daa77b28';
+const webhookUrl = 'https://discord.com/api/webhooks/your_webhook_id/your_webhook_token';
+const apiKey = 'your_openweathermap_api_key';
 
 const cities = ["London, GB", "New York City, US", "Paris, FR", "Japan, JP"];
 
@@ -27,7 +27,7 @@ test.describe.parallel('Advanced Weather Validation for Multiple Cities with Dis
       const fetchWeatherData = new FetchWeatherData(page);
 
       // Fetch weather data from API
-      const apiResponse = await apiRequest.get(`https://api.openweathermap.org/data/2.5/weather?q=London,GB&appid=dc0132befaa9ebb61d03d5e6daa77b28&units=metric`, {
+      const apiResponse = await apiRequest.get(`/weather`,, {
         params: {
           q: cityName,
           appid: apiKey,
